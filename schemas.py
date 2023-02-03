@@ -39,6 +39,3 @@ class Result(BaseModel):
 
     class Config:   
         orm_mode = True
-
-class StoreID(BaseModel):
-    store_id = int

@@ -1,17 +1,10 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, BigInteger,TIME
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, DateTime, BigInteger,TIME
 from config import Base
-
-
-class StoreID(Base):
-    __tablename__ = "stores"
-
-    store_id = Column(BigInteger, primary_key=True, index=True)
 
 class StoreStatus(Base):
     __tablename__ = "store_status"
 
-    id = Column(BigInteger, primary_key=True, index=True)
+    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
     store_id = Column(BigInteger)
     timestamp_utc = Column(DateTime)
     status = Column(String, default='active')
@@ -19,13 +12,13 @@ class StoreStatus(Base):
 class BQ_results(Base):
     __tablename__ = "bq_results"
 
-    store_id = Column(BigInteger,primary_key=True, index=True)
+    store_id = Column(BigInteger,primary_key=True, index=True, autoincrement=True)
     timezone_str = Column(String)
 
 class MenuHours(Base):
     __tablename__ = "menu_hours"
 
-    id = Column(BigInteger, primary_key=True, index=True)
+    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
     store_id = Column(BigInteger, index=True)
     day = Column(Integer, index=True)
     start_time_local = Column(TIME)
