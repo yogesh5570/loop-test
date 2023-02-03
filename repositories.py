@@ -16,7 +16,6 @@ def get_report_status(store_id):
     db = get_db()
     result = db.query(models.Result).filter(models.Result.store_id == store_id).filter(models.Result.flag == "new").all()
     if result:
-        update_flag(store_id)
         return True
     else:
         return False

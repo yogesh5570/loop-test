@@ -95,6 +95,7 @@ def get_csv(store_id):
         cursor.copy_expert(outputquery, f)
 
     conn.close
+    update_flag(store_id)
     return True
 
 def update_flag(store_id):
